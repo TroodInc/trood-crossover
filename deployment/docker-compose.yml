@@ -1,0 +1,77 @@
+version: "2"
+
+services:
+  crossover:
+    build:
+      context: ../
+      dockerfile: deployment/Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME}.crossover
+    volumes:
+      - ../:/home/src
+    networks:
+      - ${COMPOSE_PROJECT_NAME}-network
+
+  hadoop:
+    image: sequenceiq/hadoop-docker
+    container_name: ${COMPOSE_PROJECT_NAME}.hadoop
+    networks:
+      - ${COMPOSE_PROJECT_NAME}-network
+
+  zookeeper:
+    image: znly/zookeeper:3.4.8
+    container_name: ${COMPOSE_PROJECT_NAME}.zookeeper
+    environment:
+      - ZOO_ID=1
+      - ZOO_SERVERS=zookeeper
+    networks:
+      - ${COMPOSE_PROJECT_NAME}-network
+
+  overlord:
+    image: znly/druid:0.9.1.1
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+    command:
+      - overlord
+
+  coordinator:
+    image: znly/druid:0.9.1.1
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+    command:
+      - coordinator
+
+  middlemanager:
+    image: znly/druid:0.9.1.1
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+    command:
+      - middleManager
+
+  historical:
+    image: znly/druid:0.9.1.1
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+    command:
+      - historical
+
+  broker:
+    image: znly/druid:0.9.1.1
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+    command:
+      - broker
