@@ -1,0 +1,41 @@
+class ORDER_STATUS:
+    REQUEST_NOT_HANDLED = 0
+    ESTIMATION_SENT = 1
+    AGREEMENT = 2
+    IN_WORK = 3
+    SHIPPED = 4
+    DOCUMENTS = 5
+    DONE = 6
+    PAUSED = 7
+    DECLINED = 8
+
+
+class ORDER_DECLINE_REASON:
+    PRICE_NOT_SATISFIED = 1
+    TERM_NOT_SATISFIED = 2
+    QUALITY_NOT_SATISFIED = 3
+    PROJECT_ABORT = 4
+    OTHER = 5
+
+
+class ORDER_STATE:
+    ACTIVE = 1
+    DELETED = 2
+    ARCHIVED = 3
+
+
+class ORDER_REGION:
+    CHINA = 'CHINA'
+    RUSSIA = 'RUSSIA'
+
+
+class TASK_STATUS:
+    ACTIVE = 1
+    OVERDUE = 2
+    DONE = 3
+    CANCELED = 4
+
+
+class CURRENCY:
+    RUB = 1
+    USB = 2

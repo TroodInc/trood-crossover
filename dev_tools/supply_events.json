@@ -1,0 +1,72 @@
+[
+    {
+        "supply_id": 1,
+        "currency": "1",
+        "unit": "KILO",
+        "executor_id": 4,
+        "target_id": 1,
+        "target_type": "client",
+        "base_order_id": 2,
+        "total": null,
+        "created": 1529841166.0,
+        "created_date": 1529780400.0,
+        "deliver": 1529927566.0,
+        "deliver_date": 1529866800.0
+    },
+    {
+        "supply_id": 2,
+        "currency": "1",
+        "unit": "KILO",
+        "executor_id": 5,
+        "target_id": 1,
+        "target_type": "client",
+        "base_order_id": 1,
+        "total": null,
+        "created": 1529841166.0,
+        "created_date": 1529780400.0,
+        "deliver": 1530100366.0,
+        "deliver_date": 1530039600.0
+    },
+    {
+        "supply_id": 3,
+        "currency": "1",
+        "unit": "KILO",
+        "executor_id": 5,
+        "target_id": 1,
+        "target_type": "client",
+        "base_order_id": 4,
+        "total": null,
+        "created": 1529841166.0,
+        "created_date": 1529780400.0,
+        "deliver": 1530013966.0,
+        "deliver_date": 1529953200.0
+    },
+    {
+        "supply_id": 4,
+        "currency": "1",
+        "unit": "KILO",
+        "executor_id": 6,
+        "target_id": 1,
+        "target_type": "client",
+        "base_order_id": 2,
+        "total": null,
+        "created": 1529841166.0,
+        "created_date": 1529780400.0,
+        "deliver": 1530100366.0,
+        "deliver_date": 1530039600.0
+    },
+    {
+        "supply_id": 5,
+        "currency": "1",
+        "unit": "KILO",
+        "executor_id": 6,
+        "target_id": 1,
+        "target_type": "client",
+        "base_order_id": 1,
+        "total": null,
+        "created": 1529841166.0,
+        "created_date": 1529780400.0,
+        "deliver": 1530013966.0,
+        "deliver_date": 1529953200.0
+    }
+]

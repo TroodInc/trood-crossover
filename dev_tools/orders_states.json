@@ -1,0 +1,65 @@
+[
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 0,
+        "count": 2,
+        "ts": 1529780400.0
+    },
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 0,
+        "count": 5,
+        "ts": 1529953200.0
+    },
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 2,
+        "count": 1,
+        "ts": 1529953200.0
+    },
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 4,
+        "count": 3,
+        "ts": 1530039600.0
+    },
+    {
+        "target_type": "lead",
+        "target_id": 1,
+        "status_id": 0,
+        "count": 3,
+        "ts": 1530126000.0
+    },
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 0,
+        "count": 2,
+        "ts": 1530212400.0
+    },
+    {
+        "target_type": "lead",
+        "target_id": 1,
+        "status_id": 0,
+        "count": 1,
+        "ts": 1530298800.0
+    },
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 0,
+        "count": 1,
+        "ts": 1530298800.0
+    },
+    {
+        "target_type": "client",
+        "target_id": 1,
+        "status_id": 6,
+        "count": 1,
+        "ts": 1530298800.0
+    }
+]
