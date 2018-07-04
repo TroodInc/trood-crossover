@@ -1,0 +1,32 @@
+[
+    {
+        "status_id": 2,
+        "count": 7,
+        "date": 1529953200000.0,
+        "responsible_id": 3
+    },
+    {
+        "status_id": 3,
+        "count": 7,
+        "date": 1529953200000.0,
+        "responsible_id": 3
+    },
+    {
+        "status_id": 1,
+        "count": 7,
+        "date": 1529953200000.0,
+        "responsible_id": 3
+    },
+    {
+        "status_id": 1,
+        "count": 7,
+        "date": 1529953200000.0,
+        "responsible_id": 2
+    },
+    {
+        "status_id": 1,
+        "count": 5,
+        "date": 1530126000000.0,
+        "responsible_id": 3
+    }
+]

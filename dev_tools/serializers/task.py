@@ -1,14 +1,12 @@
 from rest_framework import serializers
 
-from . import JsTimestampField, DateJsTimestampField
+from serializers import DateTimeJsTimestampField
 
 
 class TaskEventSerializer(serializers.Serializer):
     responsible_id = serializers.IntegerField()
     task_id = serializers.IntegerField()
     executor_id = serializers.IntegerField()
-    created = JsTimestampField()
-    created_date = DateJsTimestampField(source='created')
-    deadline = JsTimestampField()
-    deadline_date = DateJsTimestampField(source='deadline')
+    created = DateTimeJsTimestampField()
+    deadline = DateTimeJsTimestampField()
     status_id = serializers.IntegerField()

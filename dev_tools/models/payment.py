@@ -21,3 +21,5 @@ class Payment(BaseModel):
     executor_id: int = None
     target_type: str = None
     target_id: int = None
+    base_order_source_id: int = None
+    lead_status_id: int = None

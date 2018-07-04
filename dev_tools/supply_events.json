@@ -8,10 +8,8 @@
         "target_type": "client",
         "base_order_id": 2,
         "total": null,
-        "created": 1529841166.0,
-        "created_date": 1529780400.0,
-        "deliver": 1529927566.0,
-        "deliver_date": 1529866800.0
+        "created": 1530011977000.0,
+        "deliver": 1530098377000.0
     },
     {
         "supply_id": 2,
@@ -22,10 +20,8 @@
         "target_type": "client",
         "base_order_id": 1,
         "total": null,
-        "created": 1529841166.0,
-        "created_date": 1529780400.0,
-        "deliver": 1530100366.0,
-        "deliver_date": 1530039600.0
+        "created": 1530011977000.0,
+        "deliver": 1530271177000.0
     },
     {
         "supply_id": 3,
@@ -36,10 +32,8 @@
         "target_type": "client",
         "base_order_id": 4,
         "total": null,
-        "created": 1529841166.0,
-        "created_date": 1529780400.0,
-        "deliver": 1530013966.0,
-        "deliver_date": 1529953200.0
+        "created": 1530011977000.0,
+        "deliver": 1530184777000.0
     },
     {
         "supply_id": 4,
@@ -50,10 +44,8 @@
         "target_type": "client",
         "base_order_id": 2,
         "total": null,
-        "created": 1529841166.0,
-        "created_date": 1529780400.0,
-        "deliver": 1530100366.0,
-        "deliver_date": 1530039600.0
+        "created": 1530011977000.0,
+        "deliver": 1530271177000.0
     },
     {
         "supply_id": 5,
@@ -64,9 +56,7 @@
         "target_type": "client",
         "base_order_id": 1,
         "total": null,
-        "created": 1529841166.0,
-        "created_date": 1529780400.0,
-        "deliver": 1530013966.0,
-        "deliver_date": 1529953200.0
+        "created": 1530011977000.0,
+        "deliver": 1530184777000.0
     }
 ]

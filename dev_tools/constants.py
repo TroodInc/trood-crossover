@@ -39,3 +39,18 @@ class TASK_STATUS:
 class CURRENCY:
     RUB = 1
     USB = 2
+
+
+class SOURCE:
+    WEBSITE = 1
+    RECOMMENDATION = 2
+    OLD_CLIENT = 3
+    ACTIVE_SEARCH = 4
+
+
+class LEAD_STATUS:
+    FIRST_CONTACT = 1
+    REQUEST_AWAITING = 2
+    REQUEST_RECEIVED = 3
+    NEW_CLIENT = 4
+    DECLINED = 5

@@ -3,16 +3,16 @@ import datetime
 import factory
 
 from factories import BaseFactory
-from models.order import Order
+from models.orderevent import OrderEvent
 
 
-class OrderFactory(BaseFactory):
+class OrderEventFactory(BaseFactory):
     base_order_id = factory.Sequence(lambda n: n+1)
     created = factory.LazyFunction(datetime.datetime.now)
 
     class Meta:
-        model = Order
+        model = OrderEvent
 
     @classmethod
-    def build(cls, *args, **kwargs) -> Order:
-        return super(cls, OrderFactory).build(*args, **kwargs)
+    def build(cls, *args, **kwargs) -> OrderEvent:
+        return super(cls, OrderEventFactory).build(*args, **kwargs)

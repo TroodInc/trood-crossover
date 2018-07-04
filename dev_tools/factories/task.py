@@ -5,7 +5,7 @@ import faker
 
 from factories import BaseFactory
 from factories.employee import EmployeeFactory
-from models.task import Task
+from models.taskevent import TaskEvent
 
 
 class TaskFactory(BaseFactory):
@@ -18,8 +18,8 @@ class TaskFactory(BaseFactory):
     deadline = factory.LazyFunction(datetime.datetime.now)
 
     @classmethod
-    def build(cls, *args, **kwargs) -> Task:
+    def build(cls, *args, **kwargs) -> TaskEvent:
         return super(cls, TaskFactory).build(*args, **kwargs)
 
     class Meta:
-        model = Task
+        model = TaskEvent

@@ -8,7 +8,7 @@ from .base import BaseDataGenerator
 
 class TasksGenerator(BaseDataGenerator):
     def get_data(self):
-        date_from = datetime.date.today() - datetime.timedelta(days=5)
+        date_from = datetime.date.today() - datetime.timedelta(days=7)
         dates = [date_from + datetime.timedelta(days=day_delta) for day_delta in range(0, 7)]
 
         tasks = []

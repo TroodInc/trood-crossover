@@ -3,13 +3,13 @@ from typing import List
 
 from factories.employee import EmployeeFactory
 from factories.supply import SupplyFactory
-from models.order import Order
+from models.orderevent import OrderEvent
 from .base import BaseDataGenerator
 
 
 class SuppliesGenerator(BaseDataGenerator):
-    def get_data(self, order_events: List[Order]):
-        date_from = datetime.date.today() - datetime.timedelta(days=5)
+    def get_data(self, order_events: List[OrderEvent]):
+        date_from = datetime.date.today() - datetime.timedelta(days=7)
         dates = [date_from + datetime.timedelta(days=day_delta) for day_delta in range(0, 7)]
         time = datetime.datetime.now().time()
         supply_events = []

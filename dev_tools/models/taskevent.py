@@ -3,7 +3,7 @@ import datetime
 from models import BaseModel
 
 
-class Task(BaseModel):
+class TaskEvent(BaseModel):
     task_id: int = None
     name: str = None
     description: str = None

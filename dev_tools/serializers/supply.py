@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from serializers import JsTimestampField, DateJsTimestampField
+from serializers import DateTimeJsTimestampField
 
 
 class SupplyEventSerializer(serializers.Serializer):
@@ -13,7 +13,5 @@ class SupplyEventSerializer(serializers.Serializer):
     base_order_id = serializers.IntegerField()
 
     total = serializers.FloatField()
-    created = JsTimestampField()
-    created_date = DateJsTimestampField(source='created')
-    deliver = JsTimestampField()
-    deliver_date = DateJsTimestampField(source='deliver')
+    created = DateTimeJsTimestampField()
+    deliver = DateTimeJsTimestampField()

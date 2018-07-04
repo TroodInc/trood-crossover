@@ -3,7 +3,7 @@ import datetime
 from models import BaseModel
 
 
-class Order(BaseModel):
+class OrderEvent(BaseModel):
     base_order_id: int = None
     target_type: str = None
     target_id: int = None
@@ -15,3 +15,5 @@ class Order(BaseModel):
     created: datetime.datetime = None
     state_id: int = None
     event_date: datetime.date = None
+    source_id: int = None
+    lead_status_id: int = None

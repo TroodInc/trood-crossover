@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from . import JsTimestampField, DateJsTimestampField
+from serializers import DateTimeJsTimestampField
 
 
 class OrderEventSerializer(serializers.Serializer):
@@ -12,6 +12,7 @@ class OrderEventSerializer(serializers.Serializer):
     executor_id = serializers.IntegerField()
     decline_reason_id = serializers.IntegerField()
     region_id = serializers.CharField()
-    created = JsTimestampField()
-    created_date = DateJsTimestampField(source='created')
     state_id = serializers.IntegerField()
+    created = DateTimeJsTimestampField()
+    source_id = serializers.IntegerField()
+    lead_status_id = serializers.IntegerField()

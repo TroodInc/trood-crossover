@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from . import JsTimestampField
+from serializers import DateJsTimestampField
 
 
 class PaymentEventSerializer(serializers.Serializer):
     payment_id = serializers.IntegerField()
-    planned_date = JsTimestampField()
-    payed_date = JsTimestampField()
+    planned_date = DateJsTimestampField()
+    payed_date = DateJsTimestampField()
     currency = serializers.CharField()
     payer_type = serializers.CharField()
     payer_id = serializers.IntegerField()
@@ -19,3 +19,5 @@ class PaymentEventSerializer(serializers.Serializer):
     base_order_state_id = serializers.IntegerField()
 
     executor_id = serializers.IntegerField()
+    base_order_source_id = serializers.IntegerField()
+    lead_status_id = serializers.IntegerField()

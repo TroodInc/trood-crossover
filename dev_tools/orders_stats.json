@@ -4,62 +4,79 @@
         "target_id": 1,
         "status_id": 0,
         "count": 2,
-        "ts": 1529780400.0
+        "date": 1529953200000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "client",
         "target_id": 1,
         "status_id": 0,
         "count": 5,
-        "ts": 1529953200.0
+        "date": 1530126000000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "client",
         "target_id": 1,
         "status_id": 2,
         "count": 1,
-        "ts": 1529953200.0
+        "date": 1530126000000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "client",
         "target_id": 1,
         "status_id": 4,
         "count": 3,
-        "ts": 1530039600.0
+        "date": 1530212400000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "lead",
         "target_id": 1,
         "status_id": 0,
-        "count": 3,
-        "ts": 1530126000.0
+        "count": 2,
+        "date": 1530298800000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "client",
         "target_id": 1,
         "status_id": 0,
         "count": 2,
-        "ts": 1530212400.0
+        "date": 1530385200000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "lead",
         "target_id": 1,
         "status_id": 0,
         "count": 1,
-        "ts": 1530298800.0
+        "date": 1530471600000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "client",
         "target_id": 1,
-        "status_id": 0,
+        "status_id": 2,
+        "count": 2,
+        "date": 1530471600000.0,
+        "responsible_id": 2
+    },
+    {
+        "target_type": "lead",
+        "target_id": 1,
+        "status_id": 2,
         "count": 1,
-        "ts": 1530298800.0
+        "date": 1530471600000.0,
+        "responsible_id": 2
     },
     {
         "target_type": "client",
         "target_id": 1,
         "status_id": 6,
         "count": 1,
-        "ts": 1530298800.0
+        "date": 1530471600000.0,
+        "responsible_id": 2
     }
 ]

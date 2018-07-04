@@ -3,18 +3,12 @@ import datetime
 from typing import List
 
 from factories.payment import PaymentFactory
-from models.order import Order
+from models.orderevent import OrderEvent
+from models.recipient import Recipient
 from .base import BaseDataGenerator
 
-recipients = [
-    {
-        "id": "TOPLINE",
-        "name": 'ООО "Топлайн"'
-    }, {
-        "id": "VELITTO",
-        "name": 'ООО "Велитто"'
-    }
-]
+TOPLINE = Recipient(recipient_id="TOPLINE", name='ООО "Топлайн"')
+VELITTO = Recipient(recipient_id="VELITTO", name='ООО "Велитто"')
 
 
 class PaymentsGenerator(BaseDataGenerator):
@@ -27,7 +21,7 @@ class PaymentsGenerator(BaseDataGenerator):
                 processed_payments.append(payment.payment_id)
         return copy_of_payments
 
-    def _scenario_0(self, order_events):
+    def _scenario_0(self, order_events: List[OrderEvent]):
         assert len(
             set([x.base_order_id for x in order_events])) == 1, "Order events are specified for more than 1 order"
 
@@ -35,11 +29,11 @@ class PaymentsGenerator(BaseDataGenerator):
         payments = []
         #
         payment = PaymentFactory.build(
-            target_id=order_event.target_id,
-            target_type=order_event.target_type,
-            planned_date=order_event.created + datetime.timedelta(days=2),
+            payer_id=order_event.target_id,
+            payer_type=order_event.target_type,
+            planned_date=order_event.created.date() + datetime.timedelta(days=2),
             payed_date=None,
-            recipient_id=recipients[0]['id'],
+            recipient_id=TOPLINE.recipient_id,
             recipient_type='recipient',
             planned_amount=70000,
             payed_amount=0,
@@ -47,7 +41,9 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_status=order_event.status_id,
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
-            executor_id=order_event.executor_id
+            executor_id=order_event.executor_id,
+            base_order_source_id=order_event.source_id,
+            lead_status_id=order_event.lead_status_id
         )
         payments.append(payment)
         # this payment is actually payed but with delay of 1 day
@@ -64,11 +60,11 @@ class PaymentsGenerator(BaseDataGenerator):
         #
         payments.append(
             PaymentFactory.build(
-                target_id=order_event.target_id,
-                target_type=order_event.target_type,
-                planned_date=order_event.created + datetime.timedelta(days=6),
+                payer_id=order_event.target_id,
+                payer_type=order_event.target_type,
+                planned_date=order_event.created.date() + datetime.timedelta(days=6),
                 payed_date=None,
-                recipient_id=recipients[1]['id'],
+                recipient_id=VELITTO.recipient_id,
                 recipient_type='recipient',
                 planned_amount=470000,
                 payed_amount=0,
@@ -76,16 +72,18 @@ class PaymentsGenerator(BaseDataGenerator):
                 base_order_status=order_event.status_id,
                 base_order_decline_reason_id=order_event.decline_reason_id,
                 base_order_state_id=order_event.state_id,
-                executor_id=order_event.executor_id
+                executor_id=order_event.executor_id,
+                base_order_source_id=order_event.source_id,
+                lead_status_id=order_event.lead_status_id
             )
         )
         #
         payment = PaymentFactory.build(
-            target_id=order_event.target_id,
-            target_type=order_event.target_type,
-            planned_date=order_event.created + datetime.timedelta(days=7),
+            payer_id=order_event.target_id,
+            payer_type=order_event.target_type,
+            planned_date=order_event.created.date() + datetime.timedelta(days=7),
             payed_date=None,
-            recipient_id=recipients[0]['id'],
+            recipient_id=TOPLINE.recipient_id,
             recipient_type='recipient',
             planned_amount=800000,
             payed_amount=0,
@@ -93,7 +91,9 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_status=order_event.status_id,
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
-            executor_id=order_event.executor_id
+            executor_id=order_event.executor_id,
+            base_order_source_id=order_event.source_id,
+            lead_status_id=order_event.lead_status_id
         )
         payments.append(payment)
         #
@@ -115,7 +115,7 @@ class PaymentsGenerator(BaseDataGenerator):
             payments = self._actualize_with_order_status_change(payments, order_status=order_event.status_id)
         return payments
 
-    def _scenario_1(self, order_events):
+    def _scenario_1(self, order_events: List[OrderEvent]):
         assert len(
             set([x.base_order_id for x in order_events])) == 1, "Order events are specified for more than 1 order"
 
@@ -123,11 +123,11 @@ class PaymentsGenerator(BaseDataGenerator):
         payments = []
         #
         payment = PaymentFactory.build(
-            target_id=order_event.target_id,
-            target_type=order_event.target_type,
-            planned_date=order_event.created + datetime.timedelta(days=2),
+            payer_id=order_event.target_id,
+            payer_type=order_event.target_type,
+            planned_date=order_event.created.date() + datetime.timedelta(days=2),
             payed_date=None,
-            recipient_id=recipients[0]['id'],
+            recipient_id=TOPLINE.recipient_id,
             recipient_type='recipient',
             planned_amount=120000,
             payed_amount=0,
@@ -135,7 +135,9 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_status=order_event.status_id,
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
-            executor_id=order_event.executor_id
+            executor_id=order_event.executor_id,
+            base_order_source_id=order_event.source_id,
+            lead_status_id=order_event.lead_status_id
         )
         payments.append(payment)
         # this payment is actually payed
@@ -152,11 +154,11 @@ class PaymentsGenerator(BaseDataGenerator):
         #
         payments.append(
             PaymentFactory.build(
-                target_id=order_event.target_id,
-                target_type=order_event.target_type,
-                planned_date=order_event.created + datetime.timedelta(days=6),
+                payer_id=order_event.target_id,
+                payer_type=order_event.target_type,
+                planned_date=order_event.created.date() + datetime.timedelta(days=6),
                 payed_date=None,
-                recipient_id=recipients[1]['id'],
+                recipient_id=VELITTO.recipient_id,
                 recipient_type='recipient',
                 planned_amount=470000,
                 payed_amount=0,
@@ -164,7 +166,9 @@ class PaymentsGenerator(BaseDataGenerator):
                 base_order_status=order_event.status_id,
                 base_order_decline_reason_id=order_event.decline_reason_id,
                 base_order_state_id=order_event.state_id,
-                executor_id=order_event.executor_id
+                executor_id=order_event.executor_id,
+                base_order_source_id=order_event.source_id,
+                lead_status_id=order_event.lead_status_id
             )
         )
         payments.append(payment)
@@ -187,7 +191,7 @@ class PaymentsGenerator(BaseDataGenerator):
             payments = self._actualize_with_order_status_change(payments, order_status=order_event.status_id)
         return payments
 
-    def _scenario_2(self, order_events):
+    def _scenario_2(self, order_events: List[OrderEvent]):
         assert len(
             set([x.base_order_id for x in order_events])) == 1, "Order events are specified for more than 1 order"
 
@@ -195,11 +199,11 @@ class PaymentsGenerator(BaseDataGenerator):
         payments = []
         #
         payment = PaymentFactory.build(
-            target_id=order_event.target_id,
-            target_type=order_event.target_type,
-            planned_date=order_event.created + datetime.timedelta(days=2),
+            payer_id=order_event.target_id,
+            payer_type=order_event.target_type,
+            planned_date=order_event.created.date() + datetime.timedelta(days=2),
             payed_date=None,
-            recipient_id=recipients[0]['id'],
+            recipient_id=TOPLINE.recipient_id,
             recipient_type='recipient',
             planned_amount=50000,
             payed_amount=0,
@@ -207,7 +211,9 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_status=order_event.status_id,
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
-            executor_id=order_event.executor_id
+            executor_id=order_event.executor_id,
+            base_order_source_id=order_event.source_id,
+            lead_status_id=order_event.lead_status_id
         )
         payments.append(payment)
         # this payment is actually payed
@@ -226,7 +232,7 @@ class PaymentsGenerator(BaseDataGenerator):
             payments = self._actualize_with_order_status_change(payments, order_status=order_event.status_id)
         return payments
 
-    def _get_order_events_sets(self, order_events: List[Order]):
+    def _get_order_events_sets(self, order_events: List[OrderEvent]):
         order_events_set = {}
         for order_event in order_events:
             if order_event.base_order_id not in order_events_set:
