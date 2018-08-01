@@ -25,4 +25,8 @@
         <name>dfs.client.use.datanode.hostname</name>
         <value>true</value>
     </property>
+    <property>
+        <name>hadoop.job.ugi</name>
+        <value>root</value>
+    </property>
 </configuration>

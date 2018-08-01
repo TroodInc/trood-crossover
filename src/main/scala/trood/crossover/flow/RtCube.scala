@@ -88,6 +88,8 @@ class RtCube(curator: CuratorFramework, cube: CubeConf) extends FSM[State, Data]
             tranquilizer.send(value).onFailure(e => {
                 log.error(e, "Failed to send message to druid [{}]", value)
                 self ! PushIsFailed(System.currentTimeMillis(), e)
+            }).onSuccess(vl=>{
+                log.info("Sent message: %s", vl)
             })
             stay()
         case Event(StopCube, FeedingCtx(tranquilizer, _, _, _)) =>

@@ -11,7 +11,7 @@ import scala.util.{Failure, Success, Try}
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object FlowController {
-    implicit val timeout: Timeout = Timeout(5 seconds)
+    implicit val timeout: Timeout = Timeout(5 minutes)
 
     //States
     sealed trait State
@@ -52,7 +52,7 @@ class FlowController(conf: ActorRef) extends FSM[State, Data] {
     when(Stopped) {
         case Event(StartFlow, Empty) =>
             log.info("Getting configuration ...")
-            Await.result(conf ? DistributedCrossoverConf.Get, 5 seconds) match {
+            Await.result(conf ? DistributedCrossoverConf.Get, 5 minutes) match {
                 case DistributedCrossoverConf.Config(crsrConf: CrossoverConf) =>
                     log.info("Preparing RabbitMQ consumer ...")
                     val archiver = context.actorOf(Archiver.props(crsrConf.archiver.path), "archiver")
