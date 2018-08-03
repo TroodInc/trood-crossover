@@ -82,3 +82,14 @@ Example of the Crossover configuration:
 ```
 `PATHS_TO_HADOOP_CONF_FILES` - paths must be separated by comma. Fo example: ./core-site.xml,./hdfs-site.xml.
 `HDFS_PATH_TO_CROSSOVER_CONFIG` - default value is `configuration/crossover.conf`
+
+# Running in Docker container
+To build Docker image run 
+```
+sbt docker:publishLocal
+```
+After image built run it as a regular container
+```
+docker run crossover:latest --name <container-name>
+```
+By default containerized app expects RabbitMQ container to be available at 'crossover.rabbitmq'.
