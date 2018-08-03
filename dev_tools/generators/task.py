@@ -24,8 +24,7 @@ class TasksGenerator(BaseDataGenerator):
                 status_id=TASK_STATUS.ACTIVE,
                 created=datetime.datetime.combine(dates[0], time),
                 deadline=datetime.datetime.combine(dates[0] + datetime.timedelta(days=3), time),
-                executor_id=first_employee.employee_id,
-                responsible_id=second_employee.employee_id,
+                executor_id=first_employee.employee_id
             )
         )
         #
@@ -34,8 +33,7 @@ class TasksGenerator(BaseDataGenerator):
                 status_id=TASK_STATUS.ACTIVE,
                 created=datetime.datetime.combine(dates[0], time),
                 deadline=datetime.datetime.combine(dates[0] + datetime.timedelta(days=6), time),
-                executor_id=second_employee.employee_id,
-                responsible_id=third_employee.employee_id,
+                executor_id=second_employee.employee_id
             )
         )
         #
@@ -43,8 +41,7 @@ class TasksGenerator(BaseDataGenerator):
             status_id=TASK_STATUS.ACTIVE,
             created=datetime.datetime.combine(dates[0], time),
             deadline=datetime.datetime.combine(dates[0] + datetime.timedelta(days=6), time),
-            executor_id=second_employee.employee_id,
-            responsible_id=third_employee.employee_id,
+            executor_id=second_employee.employee_id
         )
         tasks.append(task)
         tasks.append(TaskFactory.clone(task, status_id=TASK_STATUS.DONE))
@@ -56,8 +53,7 @@ class TasksGenerator(BaseDataGenerator):
                 status_id=TASK_STATUS.ACTIVE,
                 created=datetime.datetime.combine(dates[2], time),
                 deadline=datetime.datetime.combine(dates[3] + datetime.timedelta(days=6), time),
-                executor_id=second_employee.employee_id,
-                responsible_id=third_employee.employee_id,
+                executor_id=second_employee.employee_id
             )
         )
 
@@ -67,8 +63,7 @@ class TasksGenerator(BaseDataGenerator):
             status_id=TASK_STATUS.ACTIVE,
             created=datetime.datetime.combine(dates[0], time),
             deadline=datetime.datetime.combine(dates[0] + datetime.timedelta(days=1), time),
-            executor_id=second_employee.employee_id,
-            responsible_id=third_employee.employee_id,
+            executor_id=second_employee.employee_id
         )
         tasks.append(task)
         tasks.append(TaskFactory.clone(task, status_id=TASK_STATUS.OVERDUE))

@@ -29,8 +29,8 @@ class PaymentsGenerator(BaseDataGenerator):
         payments = []
         #
         payment = PaymentFactory.build(
-            payer_id=order_event.target_id,
-            payer_type=order_event.target_type,
+            payer_id=order_event.contractor_id,
+            payer_type='contractor',
             planned_date=order_event.created.date() + datetime.timedelta(days=2),
             payed_date=None,
             recipient_id=TOPLINE.recipient_id,
@@ -42,8 +42,10 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
             executor_id=order_event.executor_id,
+            responsible_id=order_event.responsible_id,
             base_order_source_id=order_event.source_id,
-            lead_status_id=order_event.lead_status_id
+            contractor_type_id=order_event.contractor_type_id,
+            contractor_lead_status_id=order_event.contractor_lead_status_id
         )
         payments.append(payment)
         # this payment is actually payed but with delay of 1 day
@@ -60,8 +62,8 @@ class PaymentsGenerator(BaseDataGenerator):
         #
         payments.append(
             PaymentFactory.build(
-                payer_id=order_event.target_id,
-                payer_type=order_event.target_type,
+                payer_id=order_event.contractor_id,
+                payer_type='contractor',
                 planned_date=order_event.created.date() + datetime.timedelta(days=6),
                 payed_date=None,
                 recipient_id=VELITTO.recipient_id,
@@ -73,14 +75,16 @@ class PaymentsGenerator(BaseDataGenerator):
                 base_order_decline_reason_id=order_event.decline_reason_id,
                 base_order_state_id=order_event.state_id,
                 executor_id=order_event.executor_id,
+                responsible_id=order_event.responsible_id,
                 base_order_source_id=order_event.source_id,
-                lead_status_id=order_event.lead_status_id
+                contractor_type_id=order_event.contractor_type_id,
+                contractor_lead_status_id=order_event.contractor_lead_status_id
             )
         )
         #
         payment = PaymentFactory.build(
-            payer_id=order_event.target_id,
-            payer_type=order_event.target_type,
+            payer_id=order_event.contractor_id,
+            payer_type='contractor',
             planned_date=order_event.created.date() + datetime.timedelta(days=7),
             payed_date=None,
             recipient_id=TOPLINE.recipient_id,
@@ -92,8 +96,10 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
             executor_id=order_event.executor_id,
+            responsible_id=order_event.responsible_id,
             base_order_source_id=order_event.source_id,
-            lead_status_id=order_event.lead_status_id
+            contractor_type_id=order_event.contractor_type_id,
+            contractor_lead_status_id=order_event.contractor_lead_status_id
         )
         payments.append(payment)
         #
@@ -123,8 +129,8 @@ class PaymentsGenerator(BaseDataGenerator):
         payments = []
         #
         payment = PaymentFactory.build(
-            payer_id=order_event.target_id,
-            payer_type=order_event.target_type,
+            payer_id=order_event.contractor_id,
+            payer_type='contractor',
             planned_date=order_event.created.date() + datetime.timedelta(days=2),
             payed_date=None,
             recipient_id=TOPLINE.recipient_id,
@@ -136,8 +142,10 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
             executor_id=order_event.executor_id,
+            responsible_id=order_event.responsible_id,
             base_order_source_id=order_event.source_id,
-            lead_status_id=order_event.lead_status_id
+            contractor_type_id=order_event.contractor_type_id,
+            contractor_lead_status_id=order_event.contractor_lead_status_id
         )
         payments.append(payment)
         # this payment is actually payed
@@ -154,8 +162,8 @@ class PaymentsGenerator(BaseDataGenerator):
         #
         payments.append(
             PaymentFactory.build(
-                payer_id=order_event.target_id,
-                payer_type=order_event.target_type,
+                payer_id=order_event.contractor_id,
+                payer_type='contractor',
                 planned_date=order_event.created.date() + datetime.timedelta(days=6),
                 payed_date=None,
                 recipient_id=VELITTO.recipient_id,
@@ -167,8 +175,10 @@ class PaymentsGenerator(BaseDataGenerator):
                 base_order_decline_reason_id=order_event.decline_reason_id,
                 base_order_state_id=order_event.state_id,
                 executor_id=order_event.executor_id,
+                responsible_id=order_event.responsible_id,
                 base_order_source_id=order_event.source_id,
-                lead_status_id=order_event.lead_status_id
+                contractor_type_id=order_event.contractor_type_id,
+                contractor_lead_status_id=order_event.contractor_lead_status_id
             )
         )
         payments.append(payment)
@@ -199,8 +209,8 @@ class PaymentsGenerator(BaseDataGenerator):
         payments = []
         #
         payment = PaymentFactory.build(
-            payer_id=order_event.target_id,
-            payer_type=order_event.target_type,
+            payer_id=order_event.contractor_id,
+            payer_type='contractor',
             planned_date=order_event.created.date() + datetime.timedelta(days=2),
             payed_date=None,
             recipient_id=TOPLINE.recipient_id,
@@ -212,8 +222,11 @@ class PaymentsGenerator(BaseDataGenerator):
             base_order_decline_reason_id=order_event.decline_reason_id,
             base_order_state_id=order_event.state_id,
             executor_id=order_event.executor_id,
+            responsible_id=order_event.responsible_id,
             base_order_source_id=order_event.source_id,
-            lead_status_id=order_event.lead_status_id
+            contractor_type_id=order_event.contractor_type_id,
+            contractor_lead_status_id=order_event.contractor_lead_status_id
+
         )
         payments.append(payment)
         # this payment is actually payed

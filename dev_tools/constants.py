@@ -9,6 +9,18 @@ class ORDER_STATUS:
     PAUSED = 7
     DECLINED = 8
 
+    REVERTED = {
+        0: 'REQUEST_NOT_HANDLED',
+        1: 'ESTIMATION_SENT',
+        2: 'AGREEMENT',
+        3: 'IN_WORK',
+        4: 'SHIPPED',
+        5: 'DOCUMENTS',
+        6: 'DONE',
+        7: 'PAUSED',
+        8: 'DECLINED'
+    }
+
 
 class ORDER_DECLINE_REASON:
     PRICE_NOT_SATISFIED = 1
@@ -54,3 +66,15 @@ class LEAD_STATUS:
     REQUEST_RECEIVED = 3
     NEW_CLIENT = 4
     DECLINED = 5
+
+
+class CONTRACTOR_TYPE:
+    LEAD = 1
+    NEW_CLIENT = 2
+    REGULAR_CLIENT = 3
+
+    REVERSED = {
+        1: 'LEAD',
+        2: 'NEW_CLIENT',
+        3: 'REGULAR_CLIENT'
+    }

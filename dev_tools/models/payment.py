@@ -19,7 +19,9 @@ class Payment(BaseModel):
     base_order_state_id: int = None
     base_order_decline_reason_id: int = None
     executor_id: int = None
+    responsible_id: int = None
     target_type: str = None
     target_id: int = None
     base_order_source_id: int = None
-    lead_status_id: int = None
+    contractor_type_id: int = None
+    contractor_lead_status_id: int = None

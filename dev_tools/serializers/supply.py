@@ -8,8 +8,8 @@ class SupplyEventSerializer(serializers.Serializer):
     currency = serializers.CharField()
     unit = serializers.CharField()
     executor_id = serializers.IntegerField()
-    target_id = serializers.IntegerField()
-    target_type = serializers.CharField()
+    contractor_id = serializers.IntegerField()
+    contractor_type_id = serializers.IntegerField()
     base_order_id = serializers.IntegerField()
 
     total = serializers.FloatField()

@@ -9,8 +9,9 @@ from .base import BaseDataGenerator
 
 class OrdersStatsGenerator(BaseDataGenerator):
     def _get_key(self, order_event: OrderEvent):
-        return '_'.join([order_event.target_type, str(order_event.target_id), str(order_event.status_id),
-                         order_event.event_date.isoformat(), str(order_event.responsible_id)])
+        return '_'.join(
+            [str(order_event.contractor_type_id), str(order_event.status_id), order_event.event_date.isoformat(),
+             str(order_event.executor_id)])
 
     def get_data(self, order_events: List[OrderEvent]) -> List[OrdersStats]:
         date_from = datetime.date.today() - datetime.timedelta(days=7)
@@ -25,12 +26,11 @@ class OrdersStatsGenerator(BaseDataGenerator):
                         key = self._get_key(order_event)
                         if key not in orders_stats:
                             orders_stats[key] = OrdersStatsFactory.build(
-                                target_type=order_event.target_type,
-                                target_id=order_event.target_id,
+                                contractor_type_id=order_event.contractor_type_id,
                                 status_id=order_event.status_id,
                                 count=0,
                                 date=date,
-                                responsible_id=order_event.responsible_id
+                                executor_id=order_event.executor_id
                             )
                         orders_stats[key].count += 1
                         processed_orders[order_event.base_order_id] = True

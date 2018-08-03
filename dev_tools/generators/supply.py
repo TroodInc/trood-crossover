@@ -22,8 +22,8 @@ class SuppliesGenerator(BaseDataGenerator):
             SupplyFactory.build(
                 created=datetime.datetime.combine(dates[0], time),
                 deliver=datetime.datetime.combine(dates[1], time),
-                target_type=order_events[6].target_type,
-                target_id=order_events[6].target_id,
+                contractor_id=order_events[6].contractor_id,
+                contractor_type_id=order_events[6].contractor_type_id,
                 executor_id=first_employee.employee_id,
                 base_order_id=order_events[6].base_order_id
             )
@@ -33,8 +33,8 @@ class SuppliesGenerator(BaseDataGenerator):
             SupplyFactory.build(
                 created=datetime.datetime.combine(dates[0], time),
                 deliver=datetime.datetime.combine(dates[3], time),
-                target_type=order_events[1].target_type,
-                target_id=order_events[1].target_id,
+                contractor_id=order_events[1].contractor_id,
+                contractor_type_id=order_events[1].contractor_type_id,
                 executor_id=second_employee.employee_id,
                 base_order_id=order_events[1].base_order_id
             )
@@ -44,8 +44,8 @@ class SuppliesGenerator(BaseDataGenerator):
             SupplyFactory.build(
                 created=datetime.datetime.combine(dates[0], time),
                 deliver=datetime.datetime.combine(dates[2], time),
-                target_type=order_events[10].target_type,
-                target_id=order_events[10].target_id,
+                contractor_id=order_events[10].contractor_id,
+                contractor_type_id=order_events[10].contractor_type_id,
                 executor_id=second_employee.employee_id,
                 base_order_id=order_events[10].base_order_id
             )
@@ -55,8 +55,8 @@ class SuppliesGenerator(BaseDataGenerator):
             SupplyFactory.build(
                 created=datetime.datetime.combine(dates[0], time),
                 deliver=datetime.datetime.combine(dates[3], time),
-                target_type=order_events[4].target_type,
-                target_id=order_events[4].target_id,
+                contractor_id=order_events[4].contractor_id,
+                contractor_type_id=order_events[4].contractor_type_id,
                 executor_id=third_employee.employee_id,
                 base_order_id=order_events[4].base_order_id
             )
@@ -66,10 +66,10 @@ class SuppliesGenerator(BaseDataGenerator):
             SupplyFactory.build(
                 created=datetime.datetime.combine(dates[0], time),
                 deliver=datetime.datetime.combine(dates[2], time),
-                target_type=order_events[3].target_type,
-                target_id=order_events[3].target_id,
+                contractor_id=order_events[17].contractor_id,
+                contractor_type_id=order_events[17].contractor_type_id,
                 executor_id=third_employee.employee_id,
-                base_order_id=order_events[3].base_order_id
+                base_order_id=order_events[17].base_order_id
             )
         )
         return supply_events

@@ -10,7 +10,7 @@ from .base import BaseDataGenerator
 class TasksStatsGenerator(BaseDataGenerator):
     def _get_key(self, task_event: TaskEvent):
         return '_'.join([str(task_event.task_id), str(task_event.status_id), task_event.created.date().isoformat(),
-                         str(task_event.responsible_id)])
+                         str(task_event.executor_id)])
 
     def get_data(self, task_events: List[TaskEvent]) -> List[TasksStats]:
         date_from = datetime.date.today() - datetime.timedelta(days=7)
@@ -28,7 +28,7 @@ class TasksStatsGenerator(BaseDataGenerator):
                                 status_id=task_event.status_id,
                                 count=0,
                                 date=date,
-                                responsible_id=task_event.responsible_id
+                                executor_id=task_event.executor_id
                             )
                         task_stats[key].count += 1
                         processed_tasks[task_event.task_id] = True

@@ -4,7 +4,6 @@ from serializers import DateTimeJsTimestampField
 
 
 class TaskEventSerializer(serializers.Serializer):
-    responsible_id = serializers.IntegerField()
     task_id = serializers.IntegerField()
     executor_id = serializers.IntegerField()
     created = DateTimeJsTimestampField()

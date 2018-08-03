@@ -1,58 +1,51 @@
 [
     {
-        "responsible_id": 2,
         "task_id": 1,
-        "executor_id": 1,
-        "created": 1530011977000.0,
-        "deadline": 1530271177000.0,
+        "executor_id": 1000002,
+        "created": 1531231600000,
+        "deadline": 1531490800000,
         "status_id": 1
     },
     {
-        "responsible_id": 3,
         "task_id": 2,
-        "executor_id": 2,
-        "created": 1530011977000.0,
-        "deadline": 1530530377000.0,
+        "executor_id": 1000003,
+        "created": 1531231600000,
+        "deadline": 1531750000000,
         "status_id": 1
     },
     {
-        "responsible_id": 3,
         "task_id": 3,
-        "executor_id": 2,
-        "created": 1530011977000.0,
-        "deadline": 1530530377000.0,
+        "executor_id": 1000003,
+        "created": 1531231600000,
+        "deadline": 1531750000000,
         "status_id": 1
     },
     {
-        "responsible_id": 3,
         "task_id": 3,
-        "executor_id": 2,
-        "created": 1530011977000.0,
-        "deadline": 1530530377000.0,
+        "executor_id": 1000003,
+        "created": 1531231600000,
+        "deadline": 1531750000000,
         "status_id": 3
     },
     {
-        "responsible_id": 3,
         "task_id": 4,
-        "executor_id": 2,
-        "created": 1530184777000.0,
-        "deadline": 1530789577000.0,
+        "executor_id": 1000003,
+        "created": 1531404400000,
+        "deadline": 1532009200000,
         "status_id": 1
     },
     {
-        "responsible_id": 3,
         "task_id": 5,
-        "executor_id": 2,
-        "created": 1530011977000.0,
-        "deadline": 1530098377000.0,
+        "executor_id": 1000003,
+        "created": 1531231600000,
+        "deadline": 1531318000000,
         "status_id": 1
     },
     {
-        "responsible_id": 3,
         "task_id": 5,
-        "executor_id": 2,
-        "created": 1530011977000.0,
-        "deadline": 1530098377000.0,
+        "executor_id": 1000003,
+        "created": 1531231600000,
+        "deadline": 1531318000000,
         "status_id": 2
     }
 ]

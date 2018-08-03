@@ -2,31 +2,31 @@
     {
         "status_id": 2,
         "count": 7,
-        "date": 1529953200000.0,
-        "responsible_id": 3
+        "date": 1531180800000,
+        "executor_id": 1000003
     },
     {
         "status_id": 3,
         "count": 7,
-        "date": 1529953200000.0,
-        "responsible_id": 3
+        "date": 1531180800000,
+        "executor_id": 1000003
     },
     {
         "status_id": 1,
         "count": 7,
-        "date": 1529953200000.0,
-        "responsible_id": 3
+        "date": 1531180800000,
+        "executor_id": 1000003
     },
     {
         "status_id": 1,
         "count": 7,
-        "date": 1529953200000.0,
-        "responsible_id": 2
+        "date": 1531180800000,
+        "executor_id": 1000002
     },
     {
         "status_id": 1,
         "count": 5,
-        "date": 1530126000000.0,
-        "responsible_id": 3
+        "date": 1531353600000,
+        "executor_id": 1000003
     }
 ]

@@ -27,7 +27,7 @@ class OrderProcessingDurationsGenerator(BaseDataGenerator):
                     status_id=order_event.status_id,
                     base_order_id=order_event.base_order_id,
                     processing_start_date=order_event.event_date,
-                    responsible_id=order_event.responsible_id
+                    executor_id=order_event.executor_id
                 )
             )
         return order_processing_durations

@@ -1,82 +1,86 @@
 [
     {
-        "target_type": "client",
-        "target_id": 1,
+        "contractor_type_id": 3,
         "status_id": 0,
         "count": 2,
-        "date": 1529953200000.0,
-        "responsible_id": 2
+        "date": 1531180800000,
+        "executor_id": 1000000
     },
     {
-        "target_type": "client",
-        "target_id": 1,
+        "contractor_type_id": 3,
         "status_id": 0,
         "count": 5,
-        "date": 1530126000000.0,
-        "responsible_id": 2
+        "date": 1531353600000,
+        "executor_id": 1000000
     },
     {
-        "target_type": "client",
-        "target_id": 1,
+        "contractor_type_id": 3,
         "status_id": 2,
         "count": 1,
-        "date": 1530126000000.0,
-        "responsible_id": 2
+        "date": 1531353600000,
+        "executor_id": 1000000
     },
     {
-        "target_type": "client",
-        "target_id": 1,
+        "contractor_type_id": 3,
         "status_id": 4,
         "count": 3,
-        "date": 1530212400000.0,
-        "responsible_id": 2
+        "date": 1531440000000,
+        "executor_id": 1000000
     },
     {
-        "target_type": "lead",
-        "target_id": 1,
+        "contractor_type_id": 1,
         "status_id": 0,
         "count": 2,
-        "date": 1530298800000.0,
-        "responsible_id": 2
+        "date": 1531526400000,
+        "executor_id": 1000001
     },
     {
-        "target_type": "client",
-        "target_id": 1,
-        "status_id": 0,
-        "count": 2,
-        "date": 1530385200000.0,
-        "responsible_id": 2
-    },
-    {
-        "target_type": "lead",
-        "target_id": 1,
+        "contractor_type_id": 3,
         "status_id": 0,
         "count": 1,
-        "date": 1530471600000.0,
-        "responsible_id": 2
+        "date": 1531612800000,
+        "executor_id": 1000001
     },
     {
-        "target_type": "client",
-        "target_id": 1,
-        "status_id": 2,
-        "count": 2,
-        "date": 1530471600000.0,
-        "responsible_id": 2
+        "contractor_type_id": 3,
+        "status_id": 0,
+        "count": 1,
+        "date": 1531612800000,
+        "executor_id": 1000000
     },
     {
-        "target_type": "lead",
-        "target_id": 1,
+        "contractor_type_id": 1,
+        "status_id": 0,
+        "count": 1,
+        "date": 1531699200000,
+        "executor_id": 1000000
+    },
+    {
+        "contractor_type_id": 3,
         "status_id": 2,
         "count": 1,
-        "date": 1530471600000.0,
-        "responsible_id": 2
+        "date": 1531699200000,
+        "executor_id": 1000001
     },
     {
-        "target_type": "client",
-        "target_id": 1,
+        "contractor_type_id": 3,
+        "status_id": 2,
+        "count": 1,
+        "date": 1531699200000,
+        "executor_id": 1000000
+    },
+    {
+        "contractor_type_id": 1,
+        "status_id": 2,
+        "count": 1,
+        "date": 1531699200000,
+        "executor_id": 1000001
+    },
+    {
+        "contractor_type_id": 3,
         "status_id": 6,
         "count": 1,
-        "date": 1530471600000.0,
-        "responsible_id": 2
+        "date": 1531699200000,
+        "executor_id": 1000000
     }
 ]

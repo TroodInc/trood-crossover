@@ -14,5 +14,5 @@ class Supply(BaseModel):
     executor_id: int = None
     created: datetime.datetime = None
     deliver: datetime.datetime = None
-    target_id: int = None
-    target_type: str = None
+    contractor_id: int = None
+    contractor_type_id: int = None

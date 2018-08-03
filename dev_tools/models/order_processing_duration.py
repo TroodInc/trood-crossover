@@ -8,4 +8,4 @@ class OrderProcessingDuration(BaseModel):
     status_id: int = None
     duration: int = None
     processing_start_date: date = None
-    responsible_id: int = None
+    executor_id: int = None
