@@ -19,6 +19,6 @@
 <configuration>
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://crossover.hadoop:9000</value>
+        <value>hdfs://stage.trood.ru:9000</value>
     </property>
 </configuration>

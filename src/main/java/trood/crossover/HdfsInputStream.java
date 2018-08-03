@@ -17,6 +17,8 @@ public class HdfsInputStream extends InputStream {
         final Configuration conf = Streamers.getHDFSConfiguration();
         final FileSystem fs = FileSystem.get(conf);
         final Path path = new Path(src);
+        System.out.print("HDFS working directory is:");
+        System.out.print(fs.getWorkingDirectory());
         input = fs.open(path);
     }
 
