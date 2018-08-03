@@ -1,6 +1,9 @@
 import Dependencies._
 
 enablePlugins(JavaServerAppPackaging)
+enablePlugins(DockerPlugin)
+enablePlugins(DockerSpotifyClientPlugin)
+
 
 lazy val root = (project in file(".")).
   settings(
