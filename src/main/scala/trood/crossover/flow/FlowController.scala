@@ -1,14 +1,15 @@
 package trood.crossover.flow
 
 import akka.actor.{Actor, ActorRef, FSM, Props}
-import trood.crossover.conf.{CrossoverConf, DistributedCrossoverConf}
 import akka.pattern.ask
 import akka.util.Timeout
+import trood.crossover.Main
+import trood.crossover.conf.{CrossoverConf, DistributedCrossoverConf}
 
-import scala.concurrent.duration._
 import scala.concurrent.Await
-import scala.util.{Failure, Success, Try}
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.util.{Failure, Success, Try}
 
 object FlowController {
     implicit val timeout: Timeout = Timeout(5 minutes)
@@ -97,7 +98,15 @@ class FlowController(conf: ActorRef) extends FSM[State, Data] {
     when(Starting) {
         case Event(RtSinkManager.SinkStarted(sink), WithConsumer(_, archiver, _, consumer, _)) =>
             log.info("Real-time sink created. Starting consumer ...")
-            val broadCaster = context.actorOf(BroadCaster.props(Seq(archiver, sink)), "broadCaster")
+
+            var receivers: Seq[ActorRef] = Seq.empty[ActorRef]
+            if (Main.ArchiveIsEnabled){
+                 receivers = Seq(archiver, sink)
+            }else{
+                 receivers = Seq(sink)
+            }
+
+            val broadCaster = context.actorOf(BroadCaster.props(receivers), "broadCaster")
             val decoder = context.actorOf(Decoder.props(broadCaster), "decoder")
             consumer ! RabbitConsumer.StartConsumer(decoder)
             stay()

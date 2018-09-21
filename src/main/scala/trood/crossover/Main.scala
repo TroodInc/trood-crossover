@@ -4,20 +4,23 @@ package trood.crossover
 import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.util.Timeout
+import com.typesafe.config.ConfigFactory
 import org.slf4j.LoggerFactory
 import trood.crossover.api.ApiServer
 import trood.crossover.conf.{CrossoverConf, DistributedCrossoverConf}
 import trood.crossover.flow.FlowController
 
 import scala.concurrent.Await
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.util.{Failure, Success, Try}
-import scala.concurrent.ExecutionContext.Implicits.global
-
 
 final case class LaunchArgs(hadoopConfigs: Option[Seq[String]], confPath: String, host: String, port: Int, ctxPath: String)
 
+
+
 object Main {
+    val  ArchiveIsEnabled:Boolean = ConfigFactory.load().getString("archiver.enabled") == "true"
     private val logger = LoggerFactory.getLogger("trood.crossover.main")
 
     private val argsParser = new scopt.OptionParser[LaunchArgs]("Crossover") {

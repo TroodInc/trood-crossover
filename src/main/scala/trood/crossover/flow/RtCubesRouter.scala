@@ -1,7 +1,7 @@
 package trood.crossover.flow
 
 import akka.actor.{ActorRef, FSM, Props, Terminated}
-
+import trood.crossover.Main
 object RtCubesRouter {
 
     sealed trait State
@@ -24,7 +24,7 @@ object RtCubesRouter {
 
 }
 
-import RtCubesRouter._
+import trood.crossover.flow.RtCubesRouter._
 class RtCubesRouter extends FSM[State, Data] {
     startWith(Stopped, NoData)
 
@@ -37,6 +37,9 @@ class RtCubesRouter extends FSM[State, Data] {
     when(Routing) {
         case Event(msg: Decoder.Message, RouteTable(map)) =>
             map.get(msg.cl).foreach(_.foreach(_ ! msg))
+            if (!Main.ArchiveIsEnabled){
+                sender ! FlowMessages.Next(msg.deliveryTag)
+            }
             stay()
         case Event(UpdateRouteTable(newRt@RouteTable(newMap)), RouteTable(curMap)) =>
             curMap.values.flatten.toSet[ActorRef].foreach(context unwatch)

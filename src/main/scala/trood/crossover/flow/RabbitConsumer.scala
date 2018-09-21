@@ -4,12 +4,13 @@ import java.util
 
 import akka.actor.{ActorLogging, ActorRef, FSM, Props}
 import com.rabbitmq.client._
+import trood.crossover.Main
 import trood.crossover.flow.FlowMessages.{Next, Refuse}
 import trood.crossover.util.NetUtil
 
 import scala.collection.mutable
-import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 import scala.util.{Failure, Success, Try}
 
 object RabbitConsumer {
@@ -20,7 +21,7 @@ object RabbitConsumer {
     case object Listening extends State
     case object WaitingAck extends State
     case object FlushingOnRefuse extends State
-    case object ForceFlushing extends State
+    case object WaitForArchiverToFlush extends State
 
     //Data
     sealed trait Data
@@ -82,7 +83,7 @@ class RabbitConsumer(ch: Channel, qName: String, archiver: ActorRef) extends Def
             goto(NotStarted)
     }
 
-    when(ForceFlushing) {
+    when(WaitForArchiverToFlush) {
         case Event(Archiver.Flushed(None), p:PushingData) =>
             log.debug("Nothing to flush")
             _nextMessage(p)
@@ -107,8 +108,15 @@ class RabbitConsumer(ch: Channel, qName: String, archiver: ActorRef) extends Def
             } else {
                 //flushing before
                 log.debug("There are messages to flush. Currently flushed up to {}. Try to flush up to {}", p.answerTo, p.pushed.envelope.getDeliveryTag)
-                archiver ! Archiver.Flush
-                goto(ForceFlushing)
+                if (Main.ArchiveIsEnabled){
+                  archiver ! Archiver.Flush
+                  goto(WaitForArchiverToFlush)
+                } else {
+                  ch.basicAck(p.pushed.envelope.getDeliveryTag, true)
+                  log.debug("All messages up to '{}' are acknowledged", p.pushed.envelope.getDeliveryTag)
+                  val newP  = p.copy(answerTo = Some(p.pushed.envelope.getDeliveryTag))
+                  goto(Listening) using EmptyQueue(newP.sub, newP.answerTo)
+                }
             }
         } else {
             val msg = p.queue.dequeue()
@@ -197,7 +205,7 @@ class RabbitConsumer(ch: Channel, qName: String, archiver: ActorRef) extends Def
     }
 
     override def preStart(): Unit = {
-        archiver ! Archiver.SubscribeOnFlush(self)
+//        archiver ! Archiver.SubscribeOnFlush(self)
     }
 
     override def postStop(): Unit = {
