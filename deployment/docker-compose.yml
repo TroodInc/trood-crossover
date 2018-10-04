@@ -14,6 +14,20 @@ services:
   crossover_rabbitmq:
     image: rabbitmq
     container_name: crossover.rabbitmq
+#    ports:
+#      - "5672:5672"
+    networks:
+      - trood_test-network
+      - trood_main-network
+
+  druid:
+    build:
+      context: ./druid
+    image: druid
+    container_name: druid
+    ports:
+      - "8082:8082"
+      - "8090:8090"
     networks:
       - trood_test-network
       - trood_main-network
