@@ -77,11 +77,17 @@ Example of the Crossover configuration:
 ```
 
 # Running
+Required environment variables:
+
+CROSSOVER_CONFIG - path to main config
+
+Optional environment variables:
+
+PATHS_TO_HADOOP_CONF_FILES - paths must be separated by comma. Fo example: ./core-site.xml,./hdfs-site.xml.
+
 ```sh
-./bin/crossover --hr <PATHS_TO_HADOOP_CONF_FILES> --conf <HDFS_PATH_TO_CROSSOVER_CONFIG>
+./bin/crossover --hr <PATHS_TO_HADOOP_CONF_FILES>
 ```
-`PATHS_TO_HADOOP_CONF_FILES` - paths must be separated by comma. Fo example: ./core-site.xml,./hdfs-site.xml.
-`HDFS_PATH_TO_CROSSOVER_CONFIG` - default value is `configuration/crossover.conf`
 
 # Running in Docker container
 To build Docker image run 
