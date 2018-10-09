@@ -1,6 +1,6 @@
 package trood.crossover.conf
 
-import java.io.InputStreamReader
+import java.io.{File, FileInputStream, InputStreamReader}
 import java.util.concurrent.atomic.AtomicReference
 
 import com.typesafe.config.{ConfigFactory, ConfigRenderOptions, ConfigValue}
@@ -110,7 +110,7 @@ import scala.util.{Failure, Success, Try}
 class DistributedCrossoverConf[T](path: String)(implicit reader: ConfigReader[VersioningConf[T]], writer: ConfigWriter[VersioningConf[T]]) extends FSM[State, Data] {
 
   private def _load(): Try[VersioningConf[T]] = Try {
-    val dataReader = new InputStreamReader(getClass().getResourceAsStream("/crossover.conf"), "UTF-8")
+    val dataReader = new InputStreamReader(new FileInputStream(new File(sys.env("CROSSOVER_CONFIG"))), "UTF-8")
     val res = ConfigFactory.parseReader(dataReader).resolve().root().as(reader)
     log.debug("Loaded config: " + res.toString())
     res
