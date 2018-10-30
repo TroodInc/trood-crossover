@@ -2,23 +2,16 @@ version: "2"
 
 services:
   crossover:
-    build:
-      context: ../target/docker/stage
+    image: registry.tools.trood.ru/crossover:1.0.1
     container_name: crossover
-    networks:
-      - trood_test-network
-      - trood_main-network
+    volumes:
+      - ./conf-example.conf:/opt/configuration/crossover.conf
     depends_on:
       - crossover_rabbitmq
 
   crossover_rabbitmq:
     image: rabbitmq
     container_name: crossover.rabbitmq
-#    ports:
-#      - "5672:5672"
-    networks:
-      - trood_test-network
-      - trood_main-network
 
   druid:
     build:
@@ -28,13 +21,3 @@ services:
     ports:
       - "8082:8082"
       - "8090:8090"
-    networks:
-      - trood_test-network
-      - trood_main-network
-
-
-networks:
-  trood_test-network:
-    driver: bridge
-  trood_main-network:
-    driver: bridge
