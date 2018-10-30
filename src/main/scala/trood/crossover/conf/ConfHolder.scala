@@ -7,6 +7,8 @@ import com.typesafe.config.{ConfigFactory, ConfigRenderOptions, ConfigValue}
 import trood.crossover.HdfsOutputStream
 import trood.crossover.conf.ProxyConfigImplicits._
 
+import java.io.{File, FileInputStream}
+
 trait ConfHolder[T] {
   def get(): T
 
@@ -36,8 +38,10 @@ class HDFSConfHolder[T](path: String)(implicit reader: ConfigReader[VersioningCo
   override def set(t: T) = _save(t)
 
   private def _load() = {
-    val dataReader = new InputStreamReader(getClass().getResourceAsStream("/" + path), "UTF-8")
+    val conf = new FileInputStream(new File(path))
+    val dataReader = new InputStreamReader(conf, "UTF-8")
     val res = ConfigFactory.parseReader(dataReader).resolve().root().as(reader)
+    conf.close()
     res
   }
 
@@ -110,9 +114,13 @@ import scala.util.{Failure, Success, Try}
 class DistributedCrossoverConf[T](path: String)(implicit reader: ConfigReader[VersioningConf[T]], writer: ConfigWriter[VersioningConf[T]]) extends FSM[State, Data] {
 
   private def _load(): Try[VersioningConf[T]] = Try {
-    val dataReader = new InputStreamReader(getClass().getResourceAsStream("/crossover.conf"), "UTF-8")
+    val conf = new FileInputStream(new File(path))
+    val dataReader = new InputStreamReader(conf, "UTF-8")
     val res = ConfigFactory.parseReader(dataReader).resolve().root().as(reader)
+    conf.close()
+
     log.debug("Loaded config: " + res.toString())
+
     res
   }
 
