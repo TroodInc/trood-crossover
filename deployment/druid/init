@@ -1,0 +1,12 @@
+#!/bin/bash -eu
+
+LOG_DIR=var
+
+mkdir log
+mkdir -p $LOG_DIR/tmp;
+mkdir -p $LOG_DIR/druid/indexing-logs;
+mkdir -p $LOG_DIR/druid/segments;
+mkdir -p $LOG_DIR/druid/segment-cache;
+mkdir -p $LOG_DIR/druid/task;
+mkdir -p $LOG_DIR/druid/hadoop-tmp;
+mkdir -p $LOG_DIR/druid/pids;
